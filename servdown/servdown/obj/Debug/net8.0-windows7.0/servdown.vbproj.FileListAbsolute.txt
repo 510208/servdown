@@ -1,0 +1,17 @@
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\bin\Debug\net8.0-windows7.0\servdown.exe
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\bin\Debug\net8.0-windows7.0\servdown.deps.json
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\bin\Debug\net8.0-windows7.0\servdown.runtimeconfig.json
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\bin\Debug\net8.0-windows7.0\servdown.dll
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\bin\Debug\net8.0-windows7.0\servdown.pdb
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.Form1.resources
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.vbproj.GenerateResource.cache
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.AssemblyInfoInputs.cache
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.AssemblyInfo.vb
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.vbproj.CoreCompileInputs.cache
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.sourcelink.json
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.dll
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\refint\servdown.dll
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.pdb
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.genruntimeconfig.cache
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\ref\servdown.dll
