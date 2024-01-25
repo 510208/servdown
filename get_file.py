@@ -31,19 +31,27 @@ def download_minecraft_server(download_link):
         file.write(response.content)
     print(f"{minecraft_server_filename} 下載完成")
 
+# 列印所有可用的穩定版本
+def print_all_versions(version_manifest):
+    for v in version_manifest['versions']:
+        if v['type'] == 'release':
+            print(v['id'])
+
 # 主程式流程
 def main():
     # 解析命令行引數
     parser = argparse.ArgumentParser(description="Get Minecraft server download link.")
     parser.add_argument("--version", help="Minecraft version")
     parser.add_argument("-d", "--download", action="store_true", help="Download the server JAR file")
+    parser.add_argument("--all_ver", action="store_true", help="Print all available stable versions")
 
     args = parser.parse_args()
     target_version = args.version
     download_requested = args.download
+    print_all_versions_requested = args.all_ver
 
     # 如果未提供版本引數，自動選擇最新的穩定版本
-    if not target_version:
+    if not target_version and not print_all_versions_requested:
         version_manifest = get_version_manifest()
         for v in version_manifest['versions']:
             if v['type'] == 'release':
@@ -53,6 +61,11 @@ def main():
     # 取得版本清單
     version_manifest = get_version_manifest()
 
+    # 如果使用者指定了 --all_ver，則列印所有可用的穩定版本
+    if print_all_versions_requested:
+        print_all_versions(version_manifest)
+        return
+
     # 取得下載連結
     download_link = get_download_link(version_manifest, target_version)
 
@@ -60,7 +73,7 @@ def main():
     if download_link:
         print(f"The download link for Minecraft {target_version} server is:")
         print(download_link)
-        
+
         # 如果使用者指定了 -d，則執行下載
         if download_requested:
             download_minecraft_server(download_link)
