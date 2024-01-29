@@ -27,9 +27,19 @@ def get_download_link(version_manifest, version):
 # 下載 Minecraft 伺服器 JAR 檔案
 def download_minecraft_server(download_link):
     response = requests.get(download_link)
-    with open(minecraft_server_filename, 'wb') as file:
+    
+    # 檢查目錄是否存在，如果不存在就創建
+    server_directory = "server"
+    if not os.path.exists(server_directory):
+        os.makedirs(server_directory)
+
+    # 將檔案保存在 server 目錄下
+    file_path = os.path.join(server_directory, minecraft_server_filename)
+    
+    with open(file_path, 'wb') as file:
         file.write(response.content)
-    print(f"{minecraft_server_filename} 下載完成")
+    
+    print(f"{minecraft_server_filename} 下載完成，保存在 {server_directory} 目錄中")
 
 # 列印所有可用的穩定版本
 def print_all_versions(version_manifest):

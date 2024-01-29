@@ -3,7 +3,6 @@ C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\bin\Debug\net8.0-w
 C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\bin\Debug\net8.0-windows7.0\servdown.runtimeconfig.json
 C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\bin\Debug\net8.0-windows7.0\servdown.dll
 C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\bin\Debug\net8.0-windows7.0\servdown.pdb
-C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.Form1.resources
 C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.vbproj.GenerateResource.cache
 C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.AssemblyInfoInputs.cache
@@ -15,3 +14,6 @@ C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-w
 C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.pdb
 C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.genruntimeconfig.cache
 C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\ref\servdown.dll
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.frmDownloader.resources
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.frmLoader.resources
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.frmLog.resources

@@ -20,7 +20,7 @@ Module MinecraftHelper
     End Function
 
     ' 調用 Python 腳本中的 download_server 函數
-    Sub DownloadServer(mcVersion As String)
+    Function DownloadServer(mcVersion As String)
         Dim processStartInfo As New ProcessStartInfo With {
             .FileName = "python",
             .Arguments = $"{pythonScriptPath} --version {mcVersion} -d",
@@ -31,9 +31,9 @@ Module MinecraftHelper
 
         Using process As New Process() With {.StartInfo = processStartInfo}
             process.Start()
-            Console.WriteLine(process.StandardOutput.ReadToEnd())
+            Return process.StandardOutput.ReadToEnd()
         End Using
-    End Sub
+    End Function
 
     ' 調用 Python 腳本中的 get_all_versions 函數
     Function GetAllVersions() As String

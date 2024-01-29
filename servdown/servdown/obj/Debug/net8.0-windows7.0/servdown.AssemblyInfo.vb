@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("servdown"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6852c8f47a0e2dcd866cdb8ecbdfbf5d28af94af"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fffbb2501c09dfa65a13eab6baaefe8c6bff982a"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("servdown"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("servdown"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _
