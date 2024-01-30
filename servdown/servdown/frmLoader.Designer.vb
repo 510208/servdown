@@ -73,6 +73,7 @@ Partial Class frmLoader
         btnStart = New Button()
         chkDisableLog = New CheckBox()
         ToolTip1 = New ToolTip(components)
+        ofdOpenProp = New OpenFileDialog()
         GroupBox1.SuspendLayout()
         CType(tkbRamLow, ComponentModel.ISupportInitialize).BeginInit()
         CType(tkbRamMax, ComponentModel.ISupportInitialize).BeginInit()
@@ -587,6 +588,10 @@ Partial Class frmLoader
         chkDisableLog.Text = "結束實例後不顯示紀錄視窗"
         chkDisableLog.UseVisualStyleBackColor = True
         ' 
+        ' ofdOpenProp
+        ' 
+        ofdOpenProp.Filter = "伺服器屬性檔(server.properties)|server.properties|Java 設定檔(*.properties)|*.properties|所有檔案 (*.*)|*.*"
+        ' 
         ' frmLoader
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -669,4 +674,5 @@ Partial Class frmLoader
     Friend WithEvents btnReadProp As Button
     Friend WithEvents txtFilePath As TextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents ofdOpenProp As OpenFileDialog
 End Class

@@ -3,6 +3,7 @@
 Module propEditor
     Function EditProp(key As String, value As String, path As String) As String
         If Not File.Exists(path) Then
+            MsgBox("文件不存在！請檢察路徑後重試", vbCritical)
             Return "文件不存在"
         End If
 
@@ -21,6 +22,7 @@ Module propEditor
             Next
 
             If Not found Then
+                MsgBox("找不到指定的Key：" + key, vbCritical)
                 Return "找不到指定的 key"
             End If
 
@@ -35,6 +37,7 @@ Module propEditor
 
     Function ReadProp(key As String, path As String) As String
         If Not File.Exists(path) Then
+            MsgBox("文件不存在！請檢察路徑後重試", vbCritical)
             Return "文件不存在"
         End If
 
@@ -48,7 +51,7 @@ Module propEditor
                     Return parts(1).Trim()
                 End If
             Next
-
+            MsgBox("找不到指定的Key：" + key, vbCritical)
             Return "找不到指定的 key"
         Catch ex As Exception
             Return $"{ex.Message}"

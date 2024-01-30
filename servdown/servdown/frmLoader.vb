@@ -57,6 +57,7 @@ Public Class frmLoader
 
     Private Sub lstVersions_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstVersions.SelectedIndexChanged
         lblName.Text = "檔案名稱：" + lstVersions.Text
+        txtFilePath.Text = Directory.GetCurrentDirectory() + "\server\server.properties"
     End Sub
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         Shell("Rundll32.exe url.dll, FileProtocolHandler https://www.minecraft.net/en-us/eula", vbNormalFocus)
@@ -196,4 +197,81 @@ Public Class frmLoader
         End If
         Return launchArg
     End Function
+
+    Private Sub btnRead_Click(sender As Object, e As EventArgs) Handles btnRead.Click
+        Dim maxPlayers, port, protectSpawn, viewDisat As Long
+        Dim motd, hard, propPath, mode As String
+        Dim pvp, cmdBlock, onlineMode As Boolean
+        propPath = txtFilePath.Text
+        ' MsgBox(propPath)
+        If propPath = "" Then
+            MsgBox("請選擇路徑！", vbCritical)
+            Return
+        End If
+        maxPlayers = Val(ReadProp("max-players", propPath))
+        port = Val(ReadProp("server-port", propPath))
+        protectSpawn = Val(ReadProp("spawn-protection", propPath))
+        viewDisat = Val(ReadProp("view-distance", propPath))
+        motd = ReadProp("motd", propPath)
+        mode = ReadProp("gamemode", propPath)
+        hard = ReadProp("difficulty", propPath).ToLower
+        Dim pvpText As String = ReadProp("pvp", propPath).ToLower
+        pvp = If(pvpText = "true", True, If(pvpText = "false", False, False))
+        Dim cmdBlockText As String = ReadProp("enable-command-block", propPath).ToLower
+        cmdBlock = If(cmdBlockText = "true", True, If(cmdBlockText = "false", False, False))
+        Dim olmText As String = ReadProp("online-mode", propPath).ToLower
+        onlineMode = If(olmText = "true", True, If(olmText = "false", False, False))
+        numMaxPlayer.Value = maxPlayers
+        numPort.Value = port
+        numSpawnProt.Value = protectSpawn
+        numMaxView.Value = viewDisat
+        txtMotd.Text = motd
+        ' MsgBox("pvp is " + pvp.ToString)
+        cmbPvp.SelectedIndex = If(pvp, 0, 1)
+        ' MsgBox("cblock is " + cmdBlock.ToString)
+        cmbCmdBlock.SelectedIndex = If(cmdBlock, 0, 1)
+        ' MsgBox("olm is " + onlineMode.ToString)
+        cmbOnlineMode.SelectedIndex = If(onlineMode, 0, 1)
+        Select Case hard
+            Case "peaceful"
+                cmbDifficutly.SelectedIndex = 0
+            Case "easy"
+                cmbDifficutly.SelectedIndex = 1
+            Case "normal"
+                cmbDifficutly.SelectedIndex = 2
+            Case "hard"
+                cmbDifficutly.SelectedIndex = 3
+            Case Else
+                ' 預設為 "normal"，你可以根據實際情況調整
+                MsgBox("設定檔內容有問題，請檢查後重新處理！")
+        End Select
+        Select Case mode
+            Case "survival"
+                cmbMode.SelectedIndex = 0
+            Case "creative"
+                cmbMode.SelectedIndex = 1
+            Case "adventure"
+                cmbMode.SelectedIndex = 2
+            Case "spectator"
+                cmbMode.SelectedIndex = 3
+            Case Else
+                ' 預設為 "normal"，你可以根據實際情況調整
+                MsgBox("設定檔內容有問題，請檢查後重新處理！")
+        End Select
+    End Sub
+
+    Private Sub btnApply_Click(sender As Object, e As EventArgs) Handles btnApply.Click
+        Dim maxPlayers, port, protectSpawn, viewDisat As Long
+        Dim motd, hard As String
+        Dim pvp, cmdBlock, onlineMode As Boolean
+        maxPlayers = numMaxPlayer.Value
+        port = numPort.Value
+        protectSpawn = numSpawnProt.Value
+        viewDisat = numMaxView.Value
+        motd = txtMotd.Text
+        pvp = cmbPvp.SelectedText
+        cmdBlock = cmbCmdBlock.SelectedText
+        hard = cmbDifficutly.SelectedText
+        onlineMode = cmbOnlineMode.Text
+    End Sub
 End Class
