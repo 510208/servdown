@@ -2,6 +2,8 @@
 Imports Microsoft.VisualBasic.Devices
 
 Public Class frmLoader
+
+    Dim readed As Boolean = False
     Private Sub scanJar()
         Dim jarFiles() As String = Nothing
 
@@ -41,6 +43,12 @@ Public Class frmLoader
 
     Private Sub frmLoader_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         scanJar()
+    End Sub
+
+    Private Sub frmLoader_Activate(sender As Object, e As EventArgs) Handles MyBase.Activated
+        If Not readed Then
+            readFromFile()
+        End If
         ' 獲取系統物理記憶體大小
         ' 獲取系統物理記憶體大小
         Dim totalPhysicalMemory = My.Computer.Info.TotalPhysicalMemory
@@ -107,7 +115,6 @@ Public Class frmLoader
         If chkAgreeEula.Checked Then
             eulaEnable()
         End If
-
         Dim selectedFileName As String = ""
         Try
             If lstVersions.SelectedItem Is Nothing Then
@@ -199,6 +206,78 @@ Public Class frmLoader
     End Function
 
     Private Sub btnRead_Click(sender As Object, e As EventArgs) Handles btnRead.Click
+        readFromFile()
+    End Sub
+
+    Private Sub btnApply_Click(sender As Object, e As EventArgs) Handles btnApply.Click
+        writeToFile()
+    End Sub
+
+    Private Sub btnResetProp_Click(sender As Object, e As EventArgs) Handles btnResetProp.Click
+        Dim response As DialogResult = MsgBox("確定要重置嗎？這會捨去先前的設定並回歸為預設值！", vbYesNo + vbInformation)
+        If response = DialogResult.No Then
+            Return
+        End If
+        numMaxPlayer.Value = 20
+        numPort.Value = 25565
+        numSpawnProt.Value = 16
+        numMaxView.Value = 10
+        txtMotd.Text = "A minecraft server"
+        cmbPvp.SelectedIndex = 0
+        ' MsgBox("cblock is " + cmdBlock.ToString)
+        cmbCmdBlock.SelectedIndex = 1
+        ' MsgBox("olm is " + onlineMode.ToString)
+        cmbOnlineMode.SelectedIndex = 0
+        cmbDifficutly.SelectedIndex = 1
+        cmbMode.SelectedIndex = 0
+        response = MsgBox("重置成功！是否立即寫入？", vbYesNo + vbInformation)
+        If response = DialogResult.No Then
+            Return
+        End If
+        writeToFile()
+    End Sub
+
+    Sub writeToFile()
+        readed = True
+        Dim response As DialogResult = MsgBox("確定要寫入嗎？", vbYesNo + vbInformation)
+        If response = DialogResult.No Then
+            Return
+        End If
+        Dim maxPlayers, port, protectSpawn, viewDisat As Double
+        Dim motd, hard, propPath, mode As String
+        Dim pvp, cmdBlock, onlineMode As Boolean
+        propPath = txtFilePath.Text
+        ' MsgBox(propPath)
+        If propPath = "" Then
+            MsgBox("請選擇路徑！", vbCritical)
+            Return
+        ElseIf Not File.Exists(propPath) Then
+            MsgBox("找不到檔案！", vbCritical)
+        End If
+        maxPlayers = numMaxPlayer.Value
+        port = numPort.Value
+        protectSpawn = numSpawnProt.Value
+        viewDisat = numMaxView.Value
+        motd = txtMotd.Text
+        pvp = cmbPvp.SelectedItem
+        cmdBlock = cmbCmdBlock.SelectedItem
+        hard = cmbDifficutly.SelectedItem
+        onlineMode = cmbOnlineMode.SelectedItem
+        mode = cmbMode.SelectedItem
+        EditProp("max-players", maxPlayers.ToString, propPath)
+        EditProp("server-port", port.ToString, propPath)
+        EditProp("spawn-protection", protectSpawn.ToString, propPath)
+        EditProp("view-distance", viewDisat.ToString, propPath)
+        EditProp("motd", maxPlayers, propPath)
+        EditProp("pvp", pvp.ToString, propPath)
+        EditProp("gamemode", mode, propPath)
+        EditProp("difficulty", hard, propPath)
+        EditProp("enable-command-block", cmdBlock.ToString, propPath)
+        EditProp("online-mode", onlineMode.ToString, propPath)
+        MsgBox($"寫入成功！以下是本次寫入相關資訊：{vbCrLf}{vbCrLf}max-players:{maxPlayers}{vbCrLf}server-port:{port}{vbCrLf}spawn-protection:{protectSpawn}{vbCrLf}view-distance:{viewDisat}{vbCrLf}motd:pvp:{pvp}{vbCrLf}gamemode:{mode}{vbCrLf}difficulty:{hard}{vbCrLf}enable-command-block:{cmdBlock}{vbCrLf}online-mode:{onlineMode}", vbInformation)
+    End Sub
+
+    Sub readFromFile()
         Dim maxPlayers, port, protectSpawn, viewDisat As Long
         Dim motd, hard, propPath, mode As String
         Dim pvp, cmdBlock, onlineMode As Boolean
@@ -207,6 +286,8 @@ Public Class frmLoader
         If propPath = "" Then
             MsgBox("請選擇路徑！", vbCritical)
             Return
+        ElseIf Not File.Exists(propPath) Then
+            MsgBox("找不到檔案！", vbCritical)
         End If
         maxPlayers = Val(ReadProp("max-players", propPath))
         port = Val(ReadProp("server-port", propPath))
@@ -243,7 +324,7 @@ Public Class frmLoader
                 cmbDifficutly.SelectedIndex = 3
             Case Else
                 ' 預設為 "normal"，你可以根據實際情況調整
-                MsgBox("設定檔內容有問題，請檢查後重新處理！")
+                MsgBox("設定檔內容有問題，請檢查後重新處理！", vbCritical)
         End Select
         Select Case mode
             Case "survival"
@@ -256,22 +337,11 @@ Public Class frmLoader
                 cmbMode.SelectedIndex = 3
             Case Else
                 ' 預設為 "normal"，你可以根據實際情況調整
-                MsgBox("設定檔內容有問題，請檢查後重新處理！")
+                MsgBox("設定檔內容有問題，請檢查後重新處理！", vbCritical)
         End Select
     End Sub
 
-    Private Sub btnApply_Click(sender As Object, e As EventArgs) Handles btnApply.Click
-        Dim maxPlayers, port, protectSpawn, viewDisat As Long
-        Dim motd, hard As String
-        Dim pvp, cmdBlock, onlineMode As Boolean
-        maxPlayers = numMaxPlayer.Value
-        port = numPort.Value
-        protectSpawn = numSpawnProt.Value
-        viewDisat = numMaxView.Value
-        motd = txtMotd.Text
-        pvp = cmbPvp.SelectedText
-        cmdBlock = cmbCmdBlock.SelectedText
-        hard = cmbDifficutly.SelectedText
-        onlineMode = cmbOnlineMode.Text
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        frmDownloader.Show()
     End Sub
 End Class

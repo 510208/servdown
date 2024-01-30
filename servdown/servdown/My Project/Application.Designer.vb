@@ -33,7 +33,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.servdown.frmDownloader
+            Me.MainForm = Global.servdown.frmSplash
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _

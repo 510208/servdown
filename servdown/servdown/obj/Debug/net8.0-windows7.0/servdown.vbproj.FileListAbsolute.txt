@@ -17,3 +17,5 @@ C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-w
 C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.frmDownloader.resources
 C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.frmLoader.resources
 C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.frmLog.resources
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.Resources.resources
+C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\obj\Debug\net8.0-windows7.0\servdown.frmSplash.resources

@@ -45,6 +45,7 @@ Partial Class frmLoader
         txtProp = New TextBox()
         Label6 = New Label()
         GroupBox3 = New GroupBox()
+        btnResetProp = New Button()
         btnRead = New Button()
         btnApply = New Button()
         btnReadProp = New Button()
@@ -289,6 +290,7 @@ Partial Class frmLoader
         ' 
         ' GroupBox3
         ' 
+        GroupBox3.Controls.Add(btnResetProp)
         GroupBox3.Controls.Add(btnRead)
         GroupBox3.Controls.Add(btnApply)
         GroupBox3.Controls.Add(btnReadProp)
@@ -320,6 +322,15 @@ Partial Class frmLoader
         GroupBox3.TabIndex = 7
         GroupBox3.TabStop = False
         GroupBox3.Text = "Server.Propties編輯器"
+        ' 
+        ' btnResetProp
+        ' 
+        btnResetProp.Location = New Point(72, 366)
+        btnResetProp.Name = "btnResetProp"
+        btnResetProp.Size = New Size(75, 25)
+        btnResetProp.TabIndex = 39
+        btnResetProp.Text = "重設(&E)"
+        btnResetProp.UseVisualStyleBackColor = True
         ' 
         ' btnRead
         ' 
@@ -606,6 +617,8 @@ Partial Class frmLoader
         Controls.Add(Label2)
         Controls.Add(Label1)
         Controls.Add(lstVersions)
+        DoubleBuffered = True
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "frmLoader"
         Text = "Minecraft 伺服器管理器"
         GroupBox1.ResumeLayout(False)
@@ -675,4 +688,5 @@ Partial Class frmLoader
     Friend WithEvents txtFilePath As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents ofdOpenProp As OpenFileDialog
+    Friend WithEvents btnResetProp As Button
 End Class

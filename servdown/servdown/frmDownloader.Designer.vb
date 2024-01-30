@@ -23,6 +23,7 @@ Partial Class frmDownloader
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDownloader))
         TabControl1 = New TabControl()
         TabPage1 = New TabPage()
         btnCheck = New Button()
@@ -36,6 +37,7 @@ Partial Class frmDownloader
         Label2 = New Label()
         Label1 = New Label()
         TabPage2 = New TabPage()
+        LinkLabel2 = New LinkLabel()
         btnDownload = New Button()
         Button1 = New Button()
         txtInstallPath = New TextBox()
@@ -47,7 +49,6 @@ Partial Class frmDownloader
         Label4 = New Label()
         ttpMain = New ToolTip(components)
         fbdInstallPath = New FolderBrowserDialog()
-        LinkLabel2 = New LinkLabel()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
         TabPage2.SuspendLayout()
@@ -209,6 +210,16 @@ Partial Class frmDownloader
         TabPage2.Text = "下載伺服器"
         TabPage2.UseVisualStyleBackColor = True
         ' 
+        ' LinkLabel2
+        ' 
+        LinkLabel2.AutoSize = True
+        LinkLabel2.Location = New Point(8, 227)
+        LinkLabel2.Name = "LinkLabel2"
+        LinkLabel2.Size = New Size(103, 15)
+        LinkLabel2.TabIndex = 13
+        LinkLabel2.TabStop = True
+        LinkLabel2.Text = "伺服器程式管理器"
+        ' 
         ' btnDownload
         ' 
         btnDownload.Font = New Font("Microsoft YaHei UI", 9F)
@@ -297,22 +308,13 @@ Partial Class frmDownloader
         ' 
         fbdInstallPath.Description = "選擇欲安裝的路徑"
         ' 
-        ' LinkLabel2
-        ' 
-        LinkLabel2.AutoSize = True
-        LinkLabel2.Location = New Point(8, 227)
-        LinkLabel2.Name = "LinkLabel2"
-        LinkLabel2.Size = New Size(103, 15)
-        LinkLabel2.TabIndex = 13
-        LinkLabel2.TabStop = True
-        LinkLabel2.Text = "伺服器程式管理器"
-        ' 
         ' frmDownloader
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(294, 284)
         Controls.Add(TabControl1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "frmDownloader"
         Text = "Minecraft 伺服器下載器"
         TabControl1.ResumeLayout(False)

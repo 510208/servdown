@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\ihoma\source\repos\510208\servdown\servdown\servdown\My Project\PublishProfiles\FolderProfile1.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Update="frmDownloader.vb">
       <SubType>Form</SubType>
@@ -8,6 +11,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmLog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmSplash.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

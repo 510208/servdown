@@ -31,7 +31,7 @@ Public Class frmLog
         End If
     End Sub
 
-    Private Sub frmLog_Load(sender As Object, e As EventArgs) Handles Me.Load
-        CheckAndSetFont()
+    Private Sub frmLog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CheckAndSetFont
     End Sub
 End Class

@@ -22,11 +22,12 @@ Partial Class frmLog
     '請勿使用程式碼編輯器進行修改。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLog))
         Panel1 = New Panel()
+        LinkLabel1 = New LinkLabel()
         Button2 = New Button()
         Button1 = New Button()
         txtLogCont = New TextBox()
-        LinkLabel1 = New LinkLabel()
         FontDialog1 = New FontDialog()
         Panel1.SuspendLayout()
         SuspendLayout()
@@ -41,6 +42,16 @@ Partial Class frmLog
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(488, 36)
         Panel1.TabIndex = 0
+        ' 
+        ' LinkLabel1
+        ' 
+        LinkLabel1.AutoSize = True
+        LinkLabel1.Location = New Point(12, 10)
+        LinkLabel1.Name = "LinkLabel1"
+        LinkLabel1.Size = New Size(55, 15)
+        LinkLabel1.TabIndex = 2
+        LinkLabel1.TabStop = True
+        LinkLabel1.Text = "更換字體"
         ' 
         ' Button2
         ' 
@@ -71,16 +82,6 @@ Partial Class frmLog
         txtLogCont.Size = New Size(488, 391)
         txtLogCont.TabIndex = 1
         ' 
-        ' LinkLabel1
-        ' 
-        LinkLabel1.AutoSize = True
-        LinkLabel1.Location = New Point(12, 10)
-        LinkLabel1.Name = "LinkLabel1"
-        LinkLabel1.Size = New Size(55, 15)
-        LinkLabel1.TabIndex = 2
-        LinkLabel1.TabStop = True
-        LinkLabel1.Text = "更換字體"
-        ' 
         ' frmLog
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -88,10 +89,11 @@ Partial Class frmLog
         ClientSize = New Size(488, 427)
         Controls.Add(txtLogCont)
         Controls.Add(Panel1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximizeBox = False
         MinimizeBox = False
         Name = "frmLog"
-        Text = "frmLog"
+        Text = "伺服器記錄檔"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         ResumeLayout(False)
